@@ -67,7 +67,7 @@ export function RealtySite() {
         </div>
         <div className="hero-caption page-shell">
           <span>Independent · Veteran-owned · Family-operated</span>
-          <span className="hero-caption-right">Real estate sales since 1983</span>
+          <span className="hero-caption-right">Real estate sales since 2013</span>
         </div>
       </section>
 
@@ -129,10 +129,10 @@ export function RealtySite() {
               Get to know Mike <span aria-hidden="true">↗</span>
             </a>
           </div>
-          <aside className="experience-card" aria-label="Real estate sales since 1983">
+          <aside className="experience-card" aria-label="Real estate sales since 2013">
             <span className="experience-kicker">Colorado Springs real estate</span>
             <strong>Since</strong>
-            <span className="experience-year">1983</span>
+            <span className="experience-year">2013</span>
             <span className="experience-divider" aria-hidden="true" />
             <span className="experience-caption">A local perspective, built over time.</span>
           </aside>

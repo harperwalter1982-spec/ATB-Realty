@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 const navigation = [
@@ -25,9 +26,15 @@ export function SiteHeader() {
       <header className="site-header">
         <div className="site-header-inner">
           <a className="brand" href="#top" onClick={closeMenu} aria-label="Around the Block Realty home">
-            <span className="brand-mark" aria-hidden="true">
-              ATB
-            </span>
+            <Image
+              className="brand-logo"
+              src="/images/around-the-block-logo.png"
+              alt=""
+              aria-hidden="true"
+              width={400}
+              height={269}
+              sizes="56px"
+            />
             <span className="brand-copy">
               <span className="brand-name">Around the Block</span>
               <span className="brand-location">REALTY · COLORADO SPRINGS</span>
