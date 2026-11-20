@@ -64,7 +64,8 @@ export function HomePageContent() {
           </h1>
           <p className="hero-description">
             Buying, selling, or managing a property? Talk with a local brokerage
-            that keeps the focus on people.
+            that keeps the focus on people. No crystal ball required—just local
+            know-how and a very practical key ring.
           </p>
           <div className="hero-actions">
             <a className="button button-light" href="/schedule">
@@ -101,7 +102,8 @@ export function ServicesPageContent() {
             </div>
             <p className="section-summary">
               From a first home to a property that needs a steady hand, get
-              straightforward help from people who know the neighborhood.
+              straightforward help from people who know the neighborhood. We
+              can&apos;t pack the boxes, but we can help with the plan.
             </p>
           </div>
 
@@ -154,7 +156,8 @@ export function AboutPageContent() {
               Around the Block Realty is an independent, veteran-owned,
               family-operated brokerage serving Colorado Springs. Owner and
               broker Mike Morris brings a personal approach to every real
-              estate conversation.
+              estate conversation. We keep the jargon plain enough to
+              understand before your coffee gets cold.
             </p>
             <a className="text-link text-link-dark" href="/contact">
               Contact Mike <span aria-hidden="true">↗</span>
@@ -191,7 +194,7 @@ export function AgentsPageContent() {
             <p>
               Interested in working with an independent local brokerage? Start
               with a conversation and see if Around the Block Realty feels like
-              the right fit.
+              the right fit. We keep the team meetings light on buzzword bingo.
             </p>
             <a
               className="button button-outline-light"
@@ -219,7 +222,7 @@ export function ContactPageContent() {
               <br />
               you <em>move toward?</em>
             </h2>
-            <p>Reach out to Mike directly. No pressure, just a good place to start.</p>
+            <p>No pressure or secret handshake—just a good place to start with Mike.</p>
           </div>
           <div className="contact-options">
             <a className="contact-option" href="tel:+17194229702">
