@@ -1,11 +1,5 @@
-import { RealtySite } from "@/components/realty-site";
-import { SiteHeader } from "@/components/site-header";
+import { HomePageContent } from "@/components/realty-site";
 
 export default function Home() {
-  return (
-    <>
-      <SiteHeader />
-      <RealtySite />
-    </>
-  );
+  return <HomePageContent />;
 }

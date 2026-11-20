@@ -36,6 +36,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.site-main {
+  flex: 1;
+}
+
 button,
 a {
   -webkit-tap-highlight-color: transparent;
@@ -163,8 +167,13 @@ button {
   color: var(--ink);
 }
 
-.site-nav > a:not(.nav-contact):hover::after {
+.site-nav > a:not(.nav-contact):hover::after,
+.site-nav > a[aria-current="page"]:not(.nav-contact)::after {
   transform: scaleX(1);
+}
+
+.site-nav > a[aria-current="page"]:not(.nav-contact) {
+  color: var(--ink);
 }
 
 .nav-contact {
@@ -784,14 +793,14 @@ button {
   }
 }
 
-@media (max-width: 760px) {
-  .site-header-inner,
-  .page-shell {
-    width: min(100% - 2rem, 78rem);
-  }
-
+@media (max-width: 920px) {
   .site-header-inner {
     min-height: 4.6rem;
+    gap: 1rem;
+  }
+
+  .brand {
+    gap: 0.65rem;
   }
 
   .brand-logo {
@@ -835,6 +844,13 @@ button {
 
   .menu-toggle {
     display: flex;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header-inner,
+  .page-shell {
+    width: min(100% - 2rem, 78rem);
   }
 
   .hero {

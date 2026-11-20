@@ -1,18 +1,22 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navigation = [
-  { label: "Services", href: "#services" },
-  { label: "Schedule", href: "#schedule" },
-  { label: "About", href: "#about" },
-
-  { label: "For agents", href: "#agents" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Schedule", href: "/schedule" },
+  { label: "About", href: "/about" },
+  { label: "For agents", href: "/agents" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   function closeMenu() {
     setMenuOpen(false);
@@ -25,7 +29,7 @@ export function SiteHeader() {
       </a>
       <header className="site-header">
         <div className="site-header-inner">
-          <a className="brand" href="#top" onClick={closeMenu} aria-label="Around the Block Realty home">
+          <Link className="brand" href="/" onClick={closeMenu} aria-label="Around the Block Realty home">
             <Image
               className="brand-logo"
               src="/images/around-the-block-logo.png"
@@ -39,7 +43,7 @@ export function SiteHeader() {
               <span className="brand-name">Around the Block</span>
               <span className="brand-location">REALTY · COLORADO SPRINGS</span>
             </span>
-          </a>
+          </Link>
 
           <nav
             id="primary-navigation"
@@ -47,9 +51,14 @@ export function SiteHeader() {
             aria-label="Main navigation"
           >
             {navigation.map((item) => (
-              <a key={item.href} href={item.href} onClick={closeMenu}>
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={closeMenu}
+                aria-current={pathname === item.href ? "page" : undefined}
+              >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <a className="nav-contact" href="tel:+17194229702" onClick={closeMenu}>
               Call Mike <span aria-hidden="true">↗</span>
