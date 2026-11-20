@@ -130,7 +130,7 @@ export function AppointmentScheduler() {
           </ul>
           <p className="schedule-confirmation-note">
             Send a request online and Mike will confirm your appointment by
-            phone or email.
+            phone or email. Your late-night listing tabs are judgment-free here.
           </p>
         </div>
 

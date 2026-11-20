@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import type { ReactNode } from "react";
 import { AppointmentScheduler } from "@/components/appointment-scheduler";
 
 const services = [
@@ -28,9 +30,17 @@ const services = [
   },
 ];
 
-export function RealtySite() {
+function SiteMain({ children }: { children: ReactNode }) {
   return (
-    <main id="main-content" tabIndex={-1}>
+    <main id="main-content" className="site-main" tabIndex={-1}>
+      {children}
+    </main>
+  );
+}
+
+export function HomePageContent() {
+  return (
+    <SiteMain>
       <section className="hero" id="top" aria-labelledby="hero-title">
         <div className="hero-image" aria-hidden="true">
           <Image
@@ -54,14 +64,15 @@ export function RealtySite() {
           </h1>
           <p className="hero-description">
             Buying, selling, or managing a property? Talk with a local brokerage
-            that keeps the focus on people.
+            that keeps the focus on people. No crystal ball required—just local
+            know-how and a very practical key ring.
           </p>
           <div className="hero-actions">
-            <a className="button button-light" href="#schedule">
-              Schedule a meeting <span aria-hidden="true">↓</span>
+            <a className="button button-light" href="/schedule">
+              Schedule a meeting <span aria-hidden="true">↗</span>
             </a>
-            <a className="text-link text-link-light" href="#services">
-              Explore our services <span aria-hidden="true">↓</span>
+            <a className="text-link text-link-light" href="/services">
+              Explore our services <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
@@ -70,7 +81,14 @@ export function RealtySite() {
           <span className="hero-caption-right">Real estate sales since 2013</span>
         </div>
       </section>
+    </SiteMain>
+  );
+}
 
+export function ServicesPageContent() {
+  return (
+    <SiteMain>
+      <h1 className="sr-only">Real estate services</h1>
       <section className="services-section section-pad" id="services" aria-labelledby="services-title">
         <div className="page-shell">
           <div className="section-intro">
@@ -84,7 +102,8 @@ export function RealtySite() {
             </div>
             <p className="section-summary">
               From a first home to a property that needs a steady hand, get
-              straightforward help from people who know the neighborhood.
+              straightforward help from people who know the neighborhood. We
+              can&apos;t pack the boxes, but we can help with the plan.
             </p>
           </div>
 
@@ -99,7 +118,7 @@ export function RealtySite() {
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-                <a className="service-link" href="#contact" aria-label={`Contact Mike about ${service.title}`}>
+                <a className="service-link" href="/contact" aria-label={`Contact Mike about ${service.title}`}>
                   Let&apos;s talk <span aria-hidden="true">↗</span>
                 </a>
               </article>
@@ -107,9 +126,23 @@ export function RealtySite() {
           </div>
         </div>
       </section>
+    </SiteMain>
+  );
+}
 
+export function SchedulePageContent() {
+  return (
+    <SiteMain>
+      <h1 className="sr-only">Schedule a meeting</h1>
       <AppointmentScheduler />
+    </SiteMain>
+  );
+}
 
+export function AboutPageContent() {
+  return (
+    <SiteMain>
+      <h1 className="sr-only">About Around the Block Realty</h1>
       <section className="about-section section-pad" id="about" aria-labelledby="about-title">
         <div className="about-layout page-shell">
           <div className="about-copy">
@@ -123,10 +156,11 @@ export function RealtySite() {
               Around the Block Realty is an independent, veteran-owned,
               family-operated brokerage serving Colorado Springs. Owner and
               broker Mike Morris brings a personal approach to every real
-              estate conversation.
+              estate conversation. We keep the jargon plain enough to
+              understand before your coffee gets cold.
             </p>
-            <a className="text-link text-link-dark" href="tel:+17194229702">
-              Get to know Mike <span aria-hidden="true">↗</span>
+            <a className="text-link text-link-dark" href="/contact">
+              Contact Mike <span aria-hidden="true">↗</span>
             </a>
           </div>
           <aside className="experience-card" aria-label="Real estate sales since 2013">
@@ -138,7 +172,14 @@ export function RealtySite() {
           </aside>
         </div>
       </section>
+    </SiteMain>
+  );
+}
 
+export function AgentsPageContent() {
+  return (
+    <SiteMain>
+      <h1 className="sr-only">For real estate professionals</h1>
       <section className="agents-section" id="agents" aria-labelledby="agents-title">
         <div className="agents-inner page-shell">
           <div>
@@ -153,7 +194,7 @@ export function RealtySite() {
             <p>
               Interested in working with an independent local brokerage? Start
               with a conversation and see if Around the Block Realty feels like
-              the right fit.
+              the right fit. We keep the team meetings light on buzzword bingo.
             </p>
             <a
               className="button button-outline-light"
@@ -164,7 +205,14 @@ export function RealtySite() {
           </div>
         </div>
       </section>
+    </SiteMain>
+  );
+}
 
+export function ContactPageContent() {
+  return (
+    <SiteMain>
+      <h1 className="sr-only">Contact Around the Block Realty</h1>
       <section className="contact-section section-pad" id="contact" aria-labelledby="contact-title">
         <div className="contact-inner page-shell">
           <div className="contact-copy">
@@ -174,7 +222,7 @@ export function RealtySite() {
               <br />
               you <em>move toward?</em>
             </h2>
-            <p>Reach out to Mike directly. No pressure, just a good place to start.</p>
+            <p>No pressure or secret handshake—just a good place to start with Mike.</p>
           </div>
           <div className="contact-options">
             <a className="contact-option" href="tel:+17194229702">
@@ -190,27 +238,31 @@ export function RealtySite() {
           </div>
         </div>
       </section>
+    </SiteMain>
+  );
+}
 
-      <footer className="site-footer">
-        <div className="footer-inner page-shell">
-          <a className="footer-brand" href="#top">Around the Block Realty</a>
-          <p>Colorado Springs, Colorado</p>
-          <nav className="footer-socials" aria-label="Social media links">
-            <a href="https://www.facebook.com/michael.w.morris1" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <Image src="/images/facebook.svg" alt="" aria-hidden="true" width={24} height={24} className="footer-social-icon" />
-            </a>
-            <a href="https://www.linkedin.com/in/mikemorris3/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <Image src="/images/linkedin.svg" alt="" aria-hidden="true" width={24} height={24} className="footer-social-icon" />
-            </a>
-            <a href="https://www.zillow.com/profile/MichaelMorris719/" target="_blank" rel="noopener noreferrer" aria-label="Zillow profile, reviews, and listings">
-              <Image src="/images/zillow.svg" alt="" aria-hidden="true" width={24} height={24} className="footer-social-icon" />
-            </a>
-          </nav>
-          <a href="https://www.atbrealestate.org" target="_blank" rel="noreferrer">
-            Current website <span aria-hidden="true">↗</span>
+export function SiteFooter() {
+  return (
+    <footer className="site-footer">
+      <div className="footer-inner page-shell">
+        <Link className="footer-brand" href="/">Around the Block Realty</Link>
+        <p>Colorado Springs, Colorado</p>
+        <nav className="footer-socials" aria-label="Social media links">
+          <a href="https://www.facebook.com/michael.w.morris1" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <Image src="/images/facebook.svg" alt="" aria-hidden="true" width={24} height={24} className="footer-social-icon" />
           </a>
-        </div>
-      </footer>
-    </main>
+          <a href="https://www.linkedin.com/in/mikemorris3/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <Image src="/images/linkedin.svg" alt="" aria-hidden="true" width={24} height={24} className="footer-social-icon" />
+          </a>
+          <a href="https://www.zillow.com/profile/MichaelMorris719/" target="_blank" rel="noopener noreferrer" aria-label="Zillow profile, reviews, and listings">
+            <Image src="/images/zillow.svg" alt="" aria-hidden="true" width={24} height={24} className="footer-social-icon" />
+          </a>
+        </nav>
+        <a href="https://www.atbrealestate.org" target="_blank" rel="noopener noreferrer">
+          Current website <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </footer>
   );
 }

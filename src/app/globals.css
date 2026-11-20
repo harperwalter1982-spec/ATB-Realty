@@ -3,12 +3,12 @@
 :root {
   color-scheme: light;
   --paper: #f5f3ec;
-  --ink: #20332f;
-  --forest: #1a3d36;
-  --forest-mid: #45675d;
-  --accent: #a65332;
-  --sage: #e2e9e0;
-  --line: rgb(32 51 47 / 15%);
+  --ink: #1f3442;
+  --blue: #173f62;
+  --green: #286a4f;
+  --red: #b83a45;
+  --green-soft: #e2eee8;
+  --line: rgb(31 52 66 / 15%);
   --font-display: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
 }
 
@@ -36,6 +36,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.site-main {
+  flex: 1;
+}
+
 button,
 a {
   -webkit-tap-highlight-color: transparent;
@@ -51,12 +55,12 @@ button {
 }
 
 :focus-visible {
-  outline: 3px solid var(--accent);
+  outline: 3px solid var(--red);
   outline-offset: 4px;
 }
 
 ::selection {
-  background: var(--forest);
+  background: var(--blue);
   color: var(--paper);
 }
 
@@ -88,13 +92,15 @@ button {
 }
 
 .site-header-inner {
+  position: relative;
   display: flex;
   width: min(100% - 3rem, 78rem);
-  min-height: 5.35rem;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  justify-content: center;
+  gap: 0.45rem;
   margin: 0 auto;
+  padding: 0.7rem 0 0.85rem;
 }
 
 .brand {
@@ -106,7 +112,7 @@ button {
 
 .brand-logo {
   display: block;
-  width: 3.5rem;
+  width: 4rem;
   height: auto;
   flex: 0 0 auto;
   object-fit: contain;
@@ -125,7 +131,7 @@ button {
 }
 
 .brand-location {
-  color: var(--forest-mid);
+  color: var(--green);
   font-size: 0.57rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -133,7 +139,9 @@ button {
 
 .site-nav {
   display: flex;
+  width: 100%;
   align-items: center;
+  justify-content: center;
   gap: clamp(1.4rem, 3vw, 2.65rem);
   font-size: 0.85rem;
   font-weight: 550;
@@ -142,7 +150,7 @@ button {
 .site-nav > a:not(.nav-contact) {
   position: relative;
   padding: 0.6rem 0;
-  color: #4b5a55;
+  color: #4c5d6c;
   transition: color 160ms ease;
 }
 
@@ -154,7 +162,7 @@ button {
   height: 1px;
   transform: scaleX(0);
   transform-origin: left;
-  background: var(--accent);
+  background: var(--red);
   content: "";
   transition: transform 180ms ease;
 }
@@ -163,8 +171,13 @@ button {
   color: var(--ink);
 }
 
-.site-nav > a:not(.nav-contact):hover::after {
+.site-nav > a:not(.nav-contact):hover::after,
+.site-nav > a[aria-current="page"]:not(.nav-contact)::after {
   transform: scaleX(1);
+}
+
+.site-nav > a[aria-current="page"]:not(.nav-contact) {
+  color: var(--ink);
 }
 
 .nav-contact {
@@ -174,7 +187,7 @@ button {
   justify-content: center;
   gap: 0.75rem;
   border-radius: 999px;
-  background: var(--accent);
+  background: var(--red);
   color: var(--paper);
   padding: 0.65rem 1.2rem;
   transition: background 160ms ease, transform 160ms ease;
@@ -183,7 +196,7 @@ button {
 .nav-contact:hover,
 .button-light:hover {
   transform: translateY(-2px);
-  background: #8e432a;
+  background: #962d36;
 }
 
 .menu-toggle {
@@ -230,7 +243,7 @@ button {
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  background: var(--forest);
+  background: var(--blue);
   color: var(--paper);
 }
 
@@ -248,10 +261,10 @@ button {
   z-index: 1;
   background: linear-gradient(
     90deg,
-    rgb(16 39 35 / 88%) 0%,
-    rgb(16 39 35 / 76%) 34%,
-    rgb(16 39 35 / 44%) 60%,
-    rgb(16 39 35 / 18%) 100%
+    rgb(12 34 56 / 88%) 0%,
+    rgb(12 34 56 / 76%) 34%,
+    rgb(12 34 56 / 44%) 60%,
+    rgb(12 34 56 / 18%) 100%
   );
   content: "";
 }
@@ -281,15 +294,15 @@ button {
 }
 
 .hero-eyebrow {
-  color: #e0e6dd;
+  color: #e3ebef;
 }
 
 .eyebrow-mark {
   width: 0.45rem;
   height: 0.45rem;
   border-radius: 50%;
-  background: #d6ab80;
-  box-shadow: 0 0 0 4px rgb(214 171 128 / 16%);
+  background: #7bc494;
+  box-shadow: 0 0 0 4px rgb(123 196 148 / 18%);
 }
 
 .hero h1,
@@ -314,14 +327,14 @@ button {
 .about-copy h2 em,
 .agents-inner h2 em,
 .contact-copy h2 em {
-  color: #d7b295;
+  color: #f2b4b8;
   font-weight: 400;
 }
 
 .hero-description {
   max-width: 34rem;
   margin: 1.75rem 0 0;
-  color: #e0e6dd;
+  color: #e3ebef;
   font-size: clamp(1rem, 1.5vw, 1.14rem);
   line-height: 1.75;
 }
@@ -347,8 +360,49 @@ button {
   transition: background 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
 
+.button:not(:disabled),
+.nav-contact {
+  animation: heartbeat 2.4s ease-in-out infinite;
+}
+
+.button:hover,
+.button:focus-visible,
+.nav-contact:hover,
+.nav-contact:focus-visible {
+  animation-play-state: paused;
+}
+
+@keyframes heartbeat {
+  0%,
+  36%,
+  100% {
+    scale: 1;
+    box-shadow: 0 0 0 0 rgb(184 58 69 / 0%);
+  }
+
+  7% {
+    scale: 1.035;
+    box-shadow: 0 0 0 4px rgb(184 58 69 / 18%);
+  }
+
+  14% {
+    scale: 1;
+    box-shadow: 0 0 0 0 rgb(184 58 69 / 0%);
+  }
+
+  22% {
+    scale: 1.025;
+    box-shadow: 0 0 0 4px rgb(184 58 69 / 12%);
+  }
+
+  29% {
+    scale: 1;
+    box-shadow: 0 0 0 0 rgb(184 58 69 / 0%);
+  }
+}
+
 .button-light {
-  background: var(--accent);
+  background: var(--red);
   color: var(--paper);
 }
 
@@ -393,7 +447,7 @@ button {
   justify-content: space-between;
   gap: 1rem;
   border-top: 1px solid rgb(245 243 236 / 28%);
-  color: #e0e6dd;
+  color: #e3ebef;
   font-size: 0.72rem;
   letter-spacing: 0.035em;
 }
@@ -421,7 +475,7 @@ button {
 }
 
 .eyebrow-dark {
-  color: var(--forest-mid);
+  color: var(--green);
 }
 
 .section-intro h2,
@@ -434,13 +488,13 @@ button {
 .section-intro h2 em,
 .about-copy h2 em,
 .contact-copy h2 em {
-  color: var(--forest-mid);
+  color: var(--green);
 }
 
 .section-summary {
   max-width: 25rem;
   margin: 0 0 0.3rem;
-  color: #52615b;
+  color: #536473;
   font-size: 0.96rem;
   line-height: 1.75;
 }
@@ -479,7 +533,7 @@ button {
 }
 
 .service-number {
-  color: var(--accent);
+  color: var(--red);
   font-family: var(--font-display);
   font-size: 1rem;
 }
@@ -500,7 +554,7 @@ button {
 
 .service-card p {
   margin: 0.8rem 0 1.3rem;
-  color: #52615b;
+  color: #536473;
   font-size: 0.84rem;
   line-height: 1.7;
 }
@@ -510,13 +564,13 @@ button {
   align-items: center;
   gap: 0.55rem;
   margin-top: auto;
-  color: var(--forest);
+  color: var(--blue);
   font-size: 0.8rem;
   font-weight: 700;
 }
 
 .about-section {
-  background: var(--sage);
+  background: var(--green-soft);
 }
 
 .about-layout {
@@ -533,13 +587,13 @@ button {
 .about-copy > p:not(.eyebrow) {
   max-width: 38rem;
   margin: 1.6rem 0 1.25rem;
-  color: #4a5c54;
+  color: #4f606d;
   font-size: 0.98rem;
   line-height: 1.85;
 }
 
 .text-link-dark {
-  color: var(--forest);
+  color: var(--blue);
 }
 
 .experience-card {
@@ -548,13 +602,13 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgb(26 61 54 / 22%);
+  border: 1px solid rgb(23 63 98 / 22%);
   padding: 2rem;
   text-align: center;
 }
 
 .experience-kicker {
-  color: var(--forest-mid);
+  color: var(--green);
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.13em;
@@ -571,7 +625,7 @@ button {
 
 .experience-year {
   margin-top: 0.1rem;
-  color: var(--forest);
+  color: var(--blue);
   font-family: var(--font-display);
   font-size: clamp(4.3rem, 7vw, 6rem);
   letter-spacing: -0.08em;
@@ -582,16 +636,16 @@ button {
   width: 2.3rem;
   height: 1px;
   margin: 1.2rem 0 0.9rem;
-  background: var(--accent);
+  background: var(--red);
 }
 
 .experience-caption {
-  color: #52615b;
+  color: #536473;
   font-size: 0.8rem;
 }
 
 .agents-section {
-  background: var(--forest);
+  background: var(--blue);
   color: var(--paper);
   padding-top: clamp(4rem, 7vw, 6rem);
   padding-bottom: clamp(4rem, 7vw, 6rem);
@@ -605,7 +659,7 @@ button {
 }
 
 .eyebrow-light {
-  color: #d3dfd5;
+  color: #d4e5db;
 }
 
 .agents-inner h2 {
@@ -614,13 +668,13 @@ button {
 }
 
 .agents-inner h2 em {
-  color: #d7b295;
+  color: #f2b4b8;
 }
 
 .agents-copy p {
   max-width: 31rem;
   margin: 0 0 1.6rem;
-  color: #d9e1d9;
+  color: #e0e8ed;
   font-size: 0.95rem;
   line-height: 1.8;
 }
@@ -650,7 +704,7 @@ button {
 .contact-copy > p:last-child {
   max-width: 29rem;
   margin: 1.5rem 0 0;
-  color: #52615b;
+  color: #536473;
   font-size: 0.93rem;
   line-height: 1.7;
 }
@@ -671,7 +725,7 @@ button {
 }
 
 .contact-label {
-  color: var(--forest-mid);
+  color: var(--green);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -688,12 +742,12 @@ button {
   position: absolute;
   top: 50%;
   right: 0.4rem;
-  color: var(--accent);
+  color: var(--red);
   font-size: 1.1rem;
 }
 
 .site-footer {
-  background: var(--sage);
+  background: var(--green-soft);
 }
 
 .footer-inner {
@@ -703,7 +757,7 @@ button {
   justify-content: space-between;
   gap: 1.5rem;
   border-top: 1px solid var(--line);
-  color: #52615b;
+  color: #536473;
   font-size: 0.75rem;
 }
 
@@ -746,7 +800,7 @@ button {
 }
 
 .footer-socials a:focus-visible {
-  outline: 3px solid var(--accent);
+  outline: 3px solid var(--red);
   outline-offset: 3px;
 }
 
@@ -784,18 +838,21 @@ button {
   }
 }
 
-@media (max-width: 760px) {
-  .site-header-inner,
-  .page-shell {
-    width: min(100% - 2rem, 78rem);
+@media (max-width: 920px) {
+  .site-header-inner {
+    min-height: 4.9rem;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
   }
 
-  .site-header-inner {
-    min-height: 4.6rem;
+  .brand {
+    gap: 0.65rem;
   }
 
   .brand-logo {
-    width: 3.1rem;
+    width: 3.4rem;
   }
 
   .brand-name {
@@ -808,13 +865,14 @@ button {
     right: 0;
     left: 0;
     display: none;
+    width: auto;
     align-items: stretch;
     flex-direction: column;
     gap: 0;
     border-bottom: 1px solid var(--line);
     background: var(--paper);
     padding: 0.6rem 1rem 1rem;
-    box-shadow: 0 18px 30px rgb(22 39 34 / 10%);
+    box-shadow: 0 18px 30px rgb(23 63 98 / 10%);
   }
 
   .site-nav.is-open {
@@ -834,7 +892,18 @@ button {
   }
 
   .menu-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0;
     display: flex;
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header-inner,
+  .page-shell {
+    width: min(100% - 2rem, 78rem);
   }
 
   .hero {
@@ -844,9 +913,9 @@ button {
   .hero-image::after {
     background: linear-gradient(
       90deg,
-      rgb(16 39 35 / 83%) 0%,
-      rgb(16 39 35 / 63%) 62%,
-      rgb(16 39 35 / 32%) 100%
+      rgb(12 34 56 / 83%) 0%,
+      rgb(12 34 56 / 63%) 62%,
+      rgb(12 34 56 / 32%) 100%
     );
   }
 
@@ -962,10 +1031,15 @@ button {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+
+  .button,
+  .nav-contact {
+    animation: none;
+  }
 }
 
 .schedule-section {
-  background: var(--forest);
+  background: var(--blue);
   color: var(--paper);
 }
 
@@ -986,14 +1060,14 @@ button {
 }
 
 .schedule-copy h2 em {
-  color: #d7b295;
+  color: #f2b4b8;
   font-weight: 400;
 }
 
 .schedule-copy > p:not(.eyebrow) {
   max-width: 32rem;
   margin: 1.4rem 0 0;
-  color: #e0e6dd;
+  color: #e3ebef;
   font-size: 0.96rem;
   line-height: 1.75;
 }
@@ -1003,14 +1077,14 @@ button {
   gap: 0.65rem;
   margin: 1.7rem 0 0;
   padding: 0;
-  color: #e0e6dd;
+  color: #e3ebef;
   font-size: 0.86rem;
   list-style: none;
 }
 
 .schedule-facts li::before {
   margin-right: 0.65rem;
-  color: #d7b295;
+  color: #f2b4b8;
   content: "—";
 }
 
@@ -1019,7 +1093,7 @@ button {
   border-top: 1px solid rgb(245 243 236 / 22%);
   margin-top: 1.8rem;
   padding-top: 1.2rem;
-  color: #c7d3ca;
+  color: #cad9e0;
   font-size: 0.82rem;
 }
 
@@ -1059,7 +1133,7 @@ button {
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 0.4rem 0.65rem;
-  color: var(--forest-mid);
+  color: var(--green);
   font-size: 0.72rem;
   font-weight: 700;
   white-space: nowrap;
@@ -1086,7 +1160,7 @@ button {
 }
 
 .scheduler-field small {
-  color: #65726c;
+  color: #657681;
   font-size: 0.7rem;
   font-weight: 500;
 }
@@ -1096,7 +1170,7 @@ button {
 .scheduler-field textarea {
   width: 100%;
   min-height: 3rem;
-  border: 1px solid rgb(32 51 47 / 22%);
+  border: 1px solid rgb(31 52 66 / 22%);
   border-radius: 0.3rem;
   padding: 0.7rem 0.8rem;
   background: #fff;
@@ -1131,7 +1205,7 @@ button {
 
 .scheduler-slots legend span {
   margin-left: 0.4rem;
-  color: #65726c;
+  color: #657681;
   font-size: 0.68rem;
   font-weight: 500;
 }
@@ -1163,7 +1237,7 @@ button {
   min-height: 2.7rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgb(32 51 47 / 20%);
+  border: 1px solid rgb(31 52 66 / 20%);
   border-radius: 0.3rem;
   padding: 0.35rem;
   color: var(--ink);
@@ -1173,33 +1247,33 @@ button {
 }
 
 .scheduler-time-option:hover span {
-  border-color: var(--forest-mid);
+  border-color: var(--green);
 }
 
 .scheduler-time-option input:checked + span {
-  border-color: var(--forest);
-  background: var(--forest);
+  border-color: var(--blue);
+  background: var(--blue);
   color: var(--paper);
 }
 
 .scheduler-time-option input:focus-visible + span {
-  outline: 3px solid var(--accent);
+  outline: 3px solid var(--red);
   outline-offset: 3px;
 }
 
 .scheduler-hint {
   margin: 0;
-  border: 1px dashed rgb(32 51 47 / 24%);
+  border: 1px dashed rgb(31 52 66 / 24%);
   border-radius: 0.35rem;
   padding: 0.85rem;
-  color: #52615b;
+  color: #536473;
   font-size: 0.78rem;
   line-height: 1.5;
 }
 
 .scheduler-hint-error {
-  border-color: rgb(166 83 50 / 42%);
-  color: #7b3d26;
+  border-color: rgb(184 58 69 / 42%);
+  color: #842e38;
 }
 
 .scheduler-feedback {
@@ -1211,18 +1285,18 @@ button {
 }
 
 .scheduler-feedback[data-status="success"] {
-  background: var(--sage);
-  color: #203b30;
+  background: var(--green-soft);
+  color: #205a40;
 }
 
 .scheduler-feedback[data-status="error"] {
-  background: #f4e5dc;
-  color: #713b27;
+  background: #f8e1e3;
+  color: #812d37;
 }
 
 .scheduler-privacy {
   margin: 0;
-  color: #65726c;
+  color: #657681;
   font-size: 0.7rem;
   line-height: 1.5;
 }
