@@ -104,18 +104,12 @@ button {
   gap: 0.8rem;
 }
 
-.brand-mark {
-  display: grid;
-  width: 2.65rem;
-  height: 2.65rem;
-  place-items: center;
-  border: 1px solid var(--forest-mid);
-  border-radius: 50%;
-  color: var(--forest);
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: -0.06em;
+.brand-logo {
+  display: block;
+  width: 3.5rem;
+  height: auto;
+  flex: 0 0 auto;
+  object-fit: contain;
 }
 
 .brand-copy {
@@ -800,9 +794,8 @@ button {
     min-height: 4.6rem;
   }
 
-  .brand-mark {
-    width: 2.4rem;
-    height: 2.4rem;
+  .brand-logo {
+    width: 3.1rem;
   }
 
   .brand-name {
